@@ -1,6 +1,6 @@
 package entregas.nevesKelvia.Reto_004;
 
-class ListaEnlazada<Elemento> {
+public class ListaEnlazada<Elemento> {
     private Nodo<Elemento> cabeza;
     private int tamaño;
 
