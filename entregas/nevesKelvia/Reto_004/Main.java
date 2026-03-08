@@ -31,20 +31,25 @@ public class Main {
             System.out.println("2. Biblioteca");
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
-            int opcionPrincipal = scanner.nextInt();
-            scanner.nextLine();
+            int opcionPrincipal = leerOpcion(scanner);
+            leerOpcion(scanner);
 
-            if (opcionPrincipal == 1) {
-                menuReproduccion(scanner, reproductor, biblioteca);
-            } else if (opcionPrincipal == 2) {
-                menuBiblioteca(scanner, biblioteca);
-            } else if (opcionPrincipal == 3) {
-                salir = true;
-                System.out.println("Saliendo de Spotify. ¡Hasta luego!");
-            } else {
-                System.out.println("Opción no válida.");
-            }
-        }
+          if (opcionPrincipal == 1) {
+             menuReproduccion(scanner, reproductor, biblioteca);
+         } 
+
+         else if (opcionPrincipal == 2) {
+             menuBiblioteca(scanner, biblioteca);
+         } 
+
+         else if (opcionPrincipal == 3) {
+             salir = true;
+             System.out.println("Saliendo de Spotify. ¡Hasta luego!");
+         } 
+
+         else {
+             System.out.println("Opción no válida.");
+         }
 
         scanner.close();
     }
@@ -64,8 +69,8 @@ public class Main {
             System.out.println("8. Ver canciones de una playlist");
             System.out.println("9. Volver al menú principal");
             System.out.print("Seleccione una opción: ");
-            int opcionBiblioteca = scanner.nextInt();
-            scanner.nextLine();
+            int opcionBiblioteca = leerOpcion(scanner);
+            leerOpcion(scanner);
 
             if (opcionBiblioteca == 1) {
                 System.out.println("Seleccione canción para añadir a favoritos:");
@@ -75,13 +80,13 @@ public class Main {
             } else if (opcionBiblioteca == 2) {
                 System.out.println("Seleccione canción para eliminar de favoritos:");
                 biblioteca.mostrarFavoritas();
-                int cancionFavoritaEliminarIndex = scanner.nextInt() - 1;
-                biblioteca.eliminarDeFavoritos(biblioteca.getCancionesFavoritas().obtener(cancionFavoritaEliminarIndex));
+                int indice = scanner.nextInt() - 1;
+                biblioteca.eliminarDeFavoritos(biblioteca.getCancionesFavoritas().obtener(indice));
             } else if (opcionBiblioteca == 3) {
                 biblioteca.mostrarFavoritas();
             } else if (opcionBiblioteca == 4) {
                 System.out.print("Nombre de la nueva playlist: ");
-                String nombrePlaylist = scanner.nextLine();
+                String nombrePlaylist = leerOpcion(scanner);
                 biblioteca.crearPlaylist(nombrePlaylist);
             } else if (opcionBiblioteca == 5) {
                 System.out.println("Playlists disponibles:");
@@ -113,14 +118,14 @@ public class Main {
             System.out.println("5. Activar/desactivar repetición");
             System.out.println("6. Volver al menú principal");
             System.out.print("Seleccione una opción: ");
-            int opcionReproduccion = scanner.nextInt();
-            scanner.nextLine();
+            int opcionReproduccion = leerOpcion(scanner);
+            leerOpcion(scanner);
 
             if (opcionReproduccion == 1) {
                 if (reproductor.getCancionActual() == null) {
                     System.out.println("No hay canción en reproducción.");
                     System.out.print("¿Desea comenzar a reproducir? (S/N): ");
-                    String respuesta = scanner.nextLine();
+                    String respuesta = leerOpcion(scanner);
                     if (respuesta.equalsIgnoreCase("S")) {
                         biblioteca.mostrarCanciones();
                         System.out.print("Seleccione canción (1-" + biblioteca.getCanciones().tamaño() + "): ");
@@ -145,5 +150,11 @@ public class Main {
                 System.out.println("Opción no válida.");
             }
         }
+    }
+
+     private static int leerOpcion(Scanner scanner) {
+        int opcion = scanner.nextInt();
+        scanner.nextLine();
+        return opcion;
     }
 }

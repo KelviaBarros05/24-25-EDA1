@@ -2,14 +2,12 @@ package entregas.nevesKelvia.Reto_004;
 
 class Reproductor {
     private ListaEnlazada<Cancion> colaReproduccion;
-    private ListaEnlazada<Cancion> historial;
     private Cancion cancionActual;
     private boolean modoAleatorio;
     private boolean modoRepetir;
 
     public Reproductor() {
         colaReproduccion = new ListaEnlazada<>();
-        historial = new ListaEnlazada<>();
         modoAleatorio = false;
         modoRepetir = false;
     }
@@ -24,7 +22,6 @@ class Reproductor {
             return;
         }
         cancionActual = colaReproduccion.obtener(0);
-        historial.añadir(cancionActual);
         System.out.println("▶ Reproduciendo: " + cancionActual.toString());
     }
 
@@ -33,7 +30,6 @@ class Reproductor {
             System.out.println("No hay más canciones en la cola.");
             return;
         }
-        historial.añadir(cancionActual);
         cancionActual = colaReproduccion.obtener(1);
         System.out.println("▶ Reproduciendo: " + cancionActual.toString());
     }

@@ -6,10 +6,10 @@ class Biblioteca {
     private ListaEnlazada<Playlist> playlists;
 
     public Biblioteca() {
-        canciones = new ListaEnlazada<>();
-        favoritas = new ListaEnlazada<>();
-        playlists = new ListaEnlazada<>();
-    }
+     this.canciones = new ListaEnlazada<>();
+     this.favoritas = new ListaEnlazada<>();
+     this.playlists = new ListaEnlazada<>();
+ }
 
     public void añadirCancion(Cancion cancion) {
         canciones.añadir(cancion);
