@@ -34,17 +34,22 @@ public class Main {
             int opcionPrincipal = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcionPrincipal == 1) {
-                menuReproduccion(scanner, reproductor, biblioteca);
-            } else if (opcionPrincipal == 2) {
-                menuBiblioteca(scanner, biblioteca);
-            } else if (opcionPrincipal == 3) {
-                salir = true;
-                System.out.println("Saliendo de Spotify. ¡Hasta luego!");
-            } else {
-                System.out.println("Opción no válida.");
-            }
-        }
+          if (opcionPrincipal == 1) {
+             menuReproduccion(scanner, reproductor, biblioteca);
+         } 
+
+         else if (opcionPrincipal == 2) {
+             menuBiblioteca(scanner, biblioteca);
+         } 
+
+         else if (opcionPrincipal == 3) {
+             salir = true;
+             System.out.println("Saliendo de Spotify. ¡Hasta luego!");
+         } 
+
+         else {
+             System.out.println("Opción no válida.");
+         }
 
         scanner.close();
     }
