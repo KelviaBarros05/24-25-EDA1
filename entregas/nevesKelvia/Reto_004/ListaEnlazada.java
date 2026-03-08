@@ -2,11 +2,11 @@ package entregas.nevesKelvia.Reto_004;
 
 public class ListaEnlazada<Elemento> {
     private Nodo<Elemento> cabeza;
-    private int tamaño;
+    private int tamano;
 
     public ListaEnlazada() {
         this.cabeza = null;
-        this.tamaño = 0;
+        this.tamano = 0;
     }
 
     public void añadir(Elemento dato) {
@@ -20,15 +20,15 @@ public class ListaEnlazada<Elemento> {
             }
             actual.siguiente = nuevoNodo;
         }
-        tamaño++;
+        tamano++;
     }
 
-    public int tamaño() {
-        return tamaño;
+    public int tamano() {
+        return tamano;
     }
 
     public Elemento obtener(int indice) {
-        if (indice < 0 || indice >= tamaño) {
+        if (indice < 0 || indice >= tamano) {
             return null;
         }
         Nodo<Elemento> actual = cabeza;
@@ -39,7 +39,7 @@ public class ListaEnlazada<Elemento> {
     }
 
     public void eliminar(int indice) {
-        if (indice < 0 || indice >= tamaño) {
+        if (indice < 0 || indice >= tamano) {
             return;
         }
         if (indice == 0) {
@@ -51,11 +51,11 @@ public class ListaEnlazada<Elemento> {
             }
             actual.siguiente = actual.siguiente.siguiente;
         }
-        tamaño--;
+        tamano--;
     }
 
     public boolean estaVacia() {
-        return tamaño == 0;
+        return tamano == 0;
     }
 
     public void mostrarElementos() {

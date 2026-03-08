@@ -75,8 +75,8 @@ public class Main {
             } else if (opcionBiblioteca == 2) {
                 System.out.println("Seleccione canción para eliminar de favoritos:");
                 biblioteca.mostrarFavoritas();
-                int cancionFavoritaEliminarIndex = scanner.nextInt() - 1;
-                biblioteca.eliminarDeFavoritos(biblioteca.getCancionesFavoritas().obtener(cancionFavoritaEliminarIndex));
+                int indice = scanner.nextInt() - 1;
+                biblioteca.eliminarDeFavoritos(biblioteca.getCancionesFavoritas().obtener(indice));
             } else if (opcionBiblioteca == 3) {
                 biblioteca.mostrarFavoritas();
             } else if (opcionBiblioteca == 4) {
